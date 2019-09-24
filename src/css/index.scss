@@ -1,0 +1,9 @@
+/******common*****/
+@import 'variables';
+@import 'mixins';
+@import 'general';
+@import 'forms';
+
+body{
+    @include reset();
+}
