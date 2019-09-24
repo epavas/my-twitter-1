@@ -4,6 +4,7 @@
 @import 'general';
 @import 'forms';
 
-body{
-    @include reset();
-}
+@import '../js/Public/SignUp/style';
+@import '../js/Public/Home/style';
+@import '../js/Public/Login/style';
+@import '../js/Public/PasswordRecovery/style';
