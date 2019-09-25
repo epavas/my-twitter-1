@@ -2,6 +2,16 @@
 
 2019
 
+## Create a .env file
+```
+APIKEY =  
+AUTHDOMAIN =  
+DATABASEURL =  
+PROJECTID =  
+MESSAGINGSENDERID =  
+APPID =  
+MEASUREMENTID =  
+```
 
 ## Available Scripts
 
