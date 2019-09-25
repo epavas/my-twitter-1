@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState}  from 'react';
 import {Link} from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
@@ -9,6 +9,17 @@ import Container from '@material-ui/core/Container';
 
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log(email);
+    console.log(password);
+    setEmail('');
+    setPassword('');
+  }
+
   return (
       <Container component="main" maxWidth="xs" className="signup">
 
@@ -27,7 +38,9 @@ function Login() {
               id="email"
               label="Correo"
               name="email"
-              autoComplete="email"
+              autoComplete="email"              
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -38,7 +51,9 @@ function Login() {
               name="password"
               label="Contraseña"
               type="password"
-              id="password"
+              id="password"              
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -46,7 +61,8 @@ function Login() {
           type="button"
           fullWidth
           variant="contained"
-          color="primary"
+          color="primary"          
+          onClick={handleSubmit}
         >
           Inicia sesión
         </Button>
