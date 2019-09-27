@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
+import {login} from './../../services/firebase';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -14,10 +15,13 @@ function Login() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(email);
-    console.log(password);
-    setEmail('');
-    setPassword('');
+    login(email, password)
+    .then(()=>{
+      console.log('Usuario autenticado');
+    })
+    .catch(err=>{
+      console.log('Ocurrió un error');
+    })
   }
 
   return (

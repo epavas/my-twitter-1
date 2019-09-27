@@ -8,3 +8,8 @@ const app = firebase.initializeApp({
   appId: process.env.REACT_APP_APPID,
   measurementId: process.env.REACT_APP_MEASUREMENTID      
 });
+const auth = firebase.auth();
+
+export const login = (email, password) => {
+  return auth.signInWithEmailAndPassword(email, password);
+}
