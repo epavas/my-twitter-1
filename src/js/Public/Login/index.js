@@ -16,8 +16,8 @@ function Login() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     login(email, password)
-    .then(()=>{
-      console.log('Usuario autenticado');
+    .then(user =>{
+      sessionStorage.setItem('user',user.user.uid);
     })
     .catch(err=>{
       console.log('Ocurrió un error');
