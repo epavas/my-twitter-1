@@ -7,7 +7,24 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
+import {signup} from './../../services/firebase';
+
 function SignUp() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    signup(email, password)
+    .then(()=>{
+      console.log('Usuario autenticado');
+    })
+    .catch(err=>{
+      console.log('Ocurrió un error');
+    })
+  }
   return (
       <Container component="main" maxWidth="xs" className="signup">
 
@@ -21,24 +38,16 @@ function SignUp() {
           <Grid item xs={12} sm={6}>
             <TextField
               autoComplete="fname"
-              name="firstName"
+              name="name"
               variant="outlined"
               required
               fullWidth
-              id="firstName"
+              id="name"
               label="Nombre"
-              autoFocus
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              id="lastName"
-              label="Apellido"
-              name="lastName"
-              autoComplete="lname"
+              autoFocus           
+              value={name}
+              onChange={e => setName(e.target.value)}
+           
             />
           </Grid>
           <Grid item xs={12}>
@@ -49,7 +58,10 @@ function SignUp() {
               id="email"
               label="Correo"
               name="email"
-              autoComplete="email"
+              autoComplete="email"           
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+           
             />
           </Grid>
           <Grid item xs={12}>
@@ -60,7 +72,10 @@ function SignUp() {
               name="password"
               label="Contraseña"
               type="password"
-              id="password"
+              id="password"           
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+           
             />
           </Grid>
           <Grid item xs={12}>
@@ -71,7 +86,10 @@ function SignUp() {
               name="confirmPassword"
               label="Confirmar contraseña"
               type="password"
-              id="confirmPassword"
+              id="confirmPassword"           
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
+           
             />
           </Grid>
           <Grid item xs={12}>
@@ -81,6 +99,7 @@ function SignUp() {
           variant="contained"
           color="primary"
           className="button"
+          onClick={handleSubmit}
         >
           Sign Up
         </Button>
