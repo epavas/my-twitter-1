@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
+import Logo from './../../utils/Logo';
 import {signup} from './../../services/firebase';
 
 function SignUp() {
@@ -30,6 +30,9 @@ function SignUp() {
 
       <form  noValidate>
         <Grid container spacing={2}>
+          <Grid item xs={12} sm={12}>
+            <Logo />
+          </Grid>
           <Grid item xs={12} sm={12}>
             <Typography component="h1" variant="h5">
               Crea tu cuenta
@@ -105,7 +108,7 @@ function SignUp() {
         </Button>
         </Grid>
           <Grid item xs={12}>
-            <Typography component="p">¿Ya tienes cuenta?<Link to="/login">¿Inicia sesión?</Link></Typography>
+            <Typography component="p">¿Ya tienes cuenta? <Link to="/login">¿Inicia sesión?</Link></Typography>
           </Grid>
         </Grid>
       </form>

@@ -4,7 +4,6 @@ import Home from './Home/';
 import Login from './Login/';
 import SignUp from './SignUp/'; 
 import PasswordRecovery from './PasswordRecovery/';
-
 function Public() {
   return (
     <main>

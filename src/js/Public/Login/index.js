@@ -10,6 +10,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import {SnackbarContentWrapper} from '../../utils/SnackbarContentWrapper';
 
 import {login} from './../../services/firebase';
+import Logo from './../../utils/Logo';
 
 function Login() {
   const [variant, setVariant] = React.useState('');
@@ -42,10 +43,13 @@ function Login() {
 
 
   return (
-      <Container component="main" maxWidth="xs" className="signup">
-
+      <Container component="main" maxWidth="xs" className="login">
+      
       <form  noValidate>
         <Grid container spacing={2}>
+          <Grid item xs={12} sm={12}>
+            <Logo />
+          </Grid>
           <Grid item xs={12} sm={12}>
             <Typography component="h1" variant="h5">
             Inicia sesión en Twitter
@@ -89,8 +93,8 @@ function Login() {
         </Button>
         </Grid>
           <Grid item xs={12}>
-            <Typography component="p">¿Ya tienes cuenta?<Link to="/passwordRecovery">¿Olvidaste tu contraseña?</Link></Typography>
-            <Typography component="p">¿Nuevo en Twitter?<Link to="/signup">Regístrate ahora »</Link></Typography>
+            <Typography component="p">¿Ya tienes cuenta? <Link to="/passwordRecovery">¿Olvidaste tu contraseña?</Link></Typography>
+            <Typography component="p">¿Nuevo en Twitter? <Link to="/signup">Regístrate ahora »</Link></Typography>
 
           </Grid>
         </Grid>
