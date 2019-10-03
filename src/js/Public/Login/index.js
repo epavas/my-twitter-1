@@ -6,23 +6,40 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Snackbar from '@material-ui/core/Snackbar';
+import {SnackbarContentWrapper} from '../../utils/SnackbarContentWrapper';
 
 import {login} from './../../services/firebase';
 
 function Login() {
+  const [variant, setVariant] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [open, setOpen] = React.useState(false);
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    login(email, password)
-    .then(user =>{
-      sessionStorage.setItem('user',user.user.uid);
-    })
-    .catch(err=>{
-      console.log('Ocurrió un error');
-    })
+    email && password &&
+      login(email, password)
+      .then(user =>{
+          setVariant('success');
+          setMessage('Success!');
+          setOpen(true);
+          sessionStorage.setItem('user',user.user.uid);        
+      })
+      .catch(err=>{
+        setVariant('error');
+        setMessage('Credenciales inválidas');
+        setOpen(true);
+      });
   }
+  
+  const handleClose = (event, reason) => {
+    setOpen(false);
+  };
+
 
   return (
       <Container component="main" maxWidth="xs" className="signup">
@@ -78,6 +95,21 @@ function Login() {
           </Grid>
         </Grid>
       </form>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={open}
+        autoHideDuration={5000}
+        onClose={handleClose}
+      >
+        <SnackbarContentWrapper
+         onClose={handleClose}
+         variant={variant}
+         message={message}
+         />
+      </Snackbar>
   </Container>
   );
 }
