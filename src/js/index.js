@@ -11,8 +11,9 @@ function Main() {
     const uid = sessionStorage.getItem("user");
     uid !== null && setIsAuth(true);
   },[isAuth]);
+
   const setAuthentication = val => { 
-    sessionStorage.clear();
+    !val && sessionStorage.clear();
     setIsAuth(val);
   }
 

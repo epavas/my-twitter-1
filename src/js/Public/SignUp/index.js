@@ -35,7 +35,7 @@ function SignUp() {
               Crea tu cuenta
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12}>
             <TextField
               autoComplete="fname"
               name="name"
