@@ -20,3 +20,6 @@ export const login = (email, password) => {
 export const signup = (email, password) => {
   return auth.createUserWithEmailAndPassword(email, password);
 }
+export const signout = () => {
+  return auth.signOut();
+}

@@ -12,7 +12,7 @@ import {SnackbarContentWrapper} from '../../utils/SnackbarContentWrapper';
 import {login} from './../../services/firebase';
 import Logo from './../../utils/Logo';
 
-function Login() {
+function Login(props) {
   const [variant, setVariant] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [open, setOpen] = React.useState(false);
@@ -28,6 +28,7 @@ function Login() {
           setVariant('success');
           setMessage('Success!');
           setOpen(true);
+          props.setAuthentication(true);
           sessionStorage.setItem('user',user.user.uid);        
       })
       .catch(err=>{
