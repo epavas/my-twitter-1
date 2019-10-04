@@ -1,4 +1,3 @@
-
 .home{
     align-items: center;
     display: flex;
@@ -12,7 +11,8 @@
     }
 }
 .home-left{
-    background: $primary-color;
+    background: url(./../../../assets/twitter-logo.svg) no-repeat center center;
+    background-size: 110vh;
     .content{
         color: #FFF;
     }

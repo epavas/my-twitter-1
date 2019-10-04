@@ -23,3 +23,6 @@ export const signup = (email, password) => {
 export const signout = () => {
   return auth.signOut();
 }
+export const passwordRecovery = (email) => {
+  return auth.sendPasswordResetEmail(email);
+}

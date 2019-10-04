@@ -10,7 +10,7 @@ function Public(props) {
       <BrowserRouter>
         <Route path="/" exact component={Home} />
         <Route path="/login" render={()=><Login setAuthentication={props.setAuthentication} />} />
-        <Route path="/signup" component={SignUp} />
+        <Route path="/signup" render={()=><SignUp setAuthentication={props.setAuthentication} />} />
         <Route path="/passwordRecovery" component={PasswordRecovery} />
       </BrowserRouter>
     </main>
