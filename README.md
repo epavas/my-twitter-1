@@ -27,6 +27,12 @@ REACT_APP_MEASUREMENTID =
 ### `npm install firebase-tools --global`
 Install Firebase CLI [https://firebase.google.com/docs/cli/?hl=es-419](https://firebase.google.com/docs/cli/?hl=es-419)
 
+### `firebase init`
+This command set a new local project for Firebase
+
+### `firebase init`
+Set at least hosting service
+
 ### `firebase deploy`
 See guide on [https://firebase.google.com/docs/hosting/quickstart?hl=es-419](https://firebase.google.com/docs/hosting/quickstart?hl=es-419)
 
